@@ -1,0 +1,19 @@
+workflows:
+  ios-workflow:
+    name: Bearcat Brief iOS
+    max_build_duration: 10
+    environment:
+      vars:
+        XCODE_SCHEME: "BearcatBrief"
+      xcode: latest
+    scripts:
+      - name: Install dependencies
+        script: |
+          echo "No dependencies to install"
+      - name: Build .ipa
+        script: |
+          xcodebuild -project BearcatBrief.xcodeproj             -scheme BearcatBrief             -sdk iphoneos             -configuration Release             -archivePath $CM_BUILD_DIR/BearcatBrief.xcarchive archive
+
+          xcodebuild -exportArchive             -archivePath $CM_BUILD_DIR/BearcatBrief.xcarchive             -exportOptionsPlist ExportOptions.plist             -exportPath $CM_BUILD_DIR/exported
+    artifacts:
+      - $CM_BUILD_DIR/exported/*.ipa

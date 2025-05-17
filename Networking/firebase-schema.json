@@ -1,0 +1,13 @@
+{
+  "games": {
+    "game_001": {
+      "sport": "Football",
+      "opponent": "Miami (OH)",
+      "date": "2025-09-01T18:00:00Z",
+      "location": "Nippert Stadium",
+      "isHome": true,
+      "isLive": true,
+      "score": "21 - 17"
+    }
+  }
+}
